@@ -1,5 +1,3 @@
-//import { registerHelper } from 'handlebars';
-
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
@@ -50,6 +48,13 @@ app.get('/about', (req, res) => {
   });
 });
 
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs',{
+    pageTitle: 'Projects Page'
+  });
+});
+
+
 app.get('/bad', (req, res) => {
   res.send({
     error: 'Unable to display result!'
@@ -57,5 +62,5 @@ app.get('/bad', (req, res) => {
 });
 
 app.listen(port, () => {
-  `Server is up on port ${port}`
+  console.log(`Server is up on port ${port}`);
 });
